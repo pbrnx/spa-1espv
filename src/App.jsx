@@ -1,6 +1,7 @@
 import Cabecalho from "./components/Cabecalho"
 import Conteudo from "./components/Conteudo"
 import Rodape from "./components/Rodape"
+import style from "./index.module.css";
 
 export default function App(){
 
@@ -9,8 +10,10 @@ export default function App(){
 
   return (
     <>
-     <div>
+     <div className={style.container}>
         {/* Criar um cabeçalho com um header, um h1 e uma lista ul com 3 itens com links*/}
+
+        <h1>TESTE</h1>
 
       <Cabecalho/>
         
