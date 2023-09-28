@@ -1,13 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Cabecalho from "./components/Cabecalho"
-import Conteudo from "./components/Conteudo"
+import Cabecalho from "./components/Cabecalho";
 import Rodape from "./components/Rodape"
 import style from "./index.module.css";
 
 export default function App(){
 
-
-  //Área declarativa
   return (
     <>
      <div className={style.container}>
