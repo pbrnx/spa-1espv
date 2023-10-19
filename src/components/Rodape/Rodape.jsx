@@ -1,7 +1,9 @@
+import "./Rodape.scss"
+
 export default function Rodape() {
   return (
     <>
-      <footer>
+      <footer className="rodape">
         <div>
           <ul>
             <li>
