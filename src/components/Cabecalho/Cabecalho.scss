@@ -1,26 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@mixin reset {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+  }
 
+ 
 .cabecalho{
-
-    background-color: #999;
-    
-    h1{
+   
+    background-color: #dce011;
+    @include reset;
+    h1, ul{
         text-align: center;
+
     }
 
     ul{
         list-style: none;
-        
-
+        font-size: 25px;
         li{
             display: inline;
-            margin: 1%;
+            
 
             a{
-                display: inline-block;
+                display: inline-flex;
                 text-decoration: none;
                 font-weight: bold;
                 color: #000;
-                padding: 2%;
+                padding: 1%;
                 border-radius: 2px;
                 transition: all ease-out 300ms;
 

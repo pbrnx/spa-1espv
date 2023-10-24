@@ -1,14 +1,17 @@
-export default function Conteudo() {
+
+
+export default
+function Conteudo() {
   return (
     <>
       <section>
-        <div>
+        <div className="paragraph">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             nulla architecto voluptate. Distinctio eos recusandae incidunt
             voluptates velit maxime qui necessitatibus voluptas id, sit dolorem
             officia dolore vel? Aspernatur, molestias?
-          </p>
+          </p> <br />
           <p>
             Quaerat dignissimos quasi, adipisci sed voluptates neque atque esse
             eius, at iure incidunt. Impedit corrupti non architecto nam odit

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Cabecalho from "./components/Cabecalho/Cabecalho";
 import Rodape from "./components/Rodape/Rodape"
 import style from "./index.module.css";
+import Conteudo from "./components/Conteudo";
 
 export default function App(){
 
@@ -12,6 +13,7 @@ export default function App(){
   <Cabecalho/>
         
         {/* Criar uma Seção de conteúdo com uma div e 2 parágrafos com 3 linhas de lorem. */}
+   
 
         {/* <Conteudo/> */}
         <Outlet/>
