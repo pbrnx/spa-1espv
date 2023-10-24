@@ -1,81 +1,70 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
 
 export default function Produtos() {
   document.title = "PRODUTOS";
-  
-  const [listaProdutosAPI, setListaProdutosAPI] = useState([]);
+
+  const [valorData, setValorData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("EXECUTA APENAS UMA VEZ!");
-    fetch("http://localhost:5000/produtos",{
-      method:"GET",
-      headers:{
-        "Acepted":"application/json"
-      }
+    // Fetch valor data when the component mounts
+    fetch("http://localhost:5174/produtos", {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+      },
     })
-    .then((response)=> response.json())
-    .then((response)=> setListaProdutosAPI(response))
-    .catch((error) => console.log(error));
-  }, [])
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        setValorData(response.map((item) => item.valor));
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
-
     <div>
       <h1>Produtos</h1>
 
-        <div className="tblProdutos">
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>DESCRIÇÃO</th>
-                <th>VALOR</th>
-                <th>EDITAR/EXCLUIR</th>
+      <div className="tblProdutos">
+        <table>
+          <thead>
+            <tr>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {valorData.map((valor, indice) => (
+              <tr key={indice}>
+                <td>{valor}</td>
               </tr>
-            </thead>
-            <tbody>
-
-                {listaProdutosAPI.map((item,indice)=>(
-                  <tr key={indice}>
-                      <td>{item.id}</td>
-                      <td>{item.nome}</td>
-                      <td>{item.desc}</td>
-                      <td>{item.valor}</td>
-                      <td>
-                        <Link to={`/editar/produtos/${item.id}`}>Editar</Link>
-                      </td>
-                  </tr>
-                ))}
-
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan={4}>PRODUTOS / Qtd = {listaProdutosAPI.length}</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>PRODUTOS / Qtd = {valorData.length}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
-  )
+  );
 }
-
-
-  // const [open, setOpen] = useState(false);s
-        {/* {open ? <Modal open={true} setOpen={setOpen}/> : ""}
-
-        <button onClick={()=> setOpen(true)}>OPEN-MODAL</button> */}
-
-        // const [counter, setCounter] = useState(0);
-        // document.title = "PRODUTOS - " + counter;
-      
-        // const [produto,setProduto] = useState({
-        //    id:1,
-        //    nome:"TESTE",
-        //    desc:"TESTANDO",
-        //    valor:230
-        // });
-      

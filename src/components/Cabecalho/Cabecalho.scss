@@ -8,7 +8,7 @@
  
 .cabecalho{
    
-    background-color: #dce011;
+    background-color: #00ff84;
     @include reset;
     h1, ul{
         text-align: center;
@@ -33,7 +33,6 @@
 
                 &:hover{
                     color: #fff;
-                    background-color: #000;
                 }
 
             }

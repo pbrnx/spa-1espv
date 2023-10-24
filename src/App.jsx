@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Cabecalho from "./components/Cabecalho/Cabecalho";
 import Rodape from "./components/Rodape/Rodape"
 import style from "./index.module.css";
-import Conteudo from "./components/Conteudo";
+import Conteudo from "./components/Conteudo/Conteudo";
 
 export default function App(){
 

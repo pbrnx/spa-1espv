@@ -1,9 +1,9 @@
+import "./Conteudo.scss";
 
-
-export default
-function Conteudo() {
+export default function Conteudo() {
   return (
     <>
+    <h1 className="title">Home</h1>
       <section>
         <div className="paragraph">
           <p>
@@ -11,7 +11,7 @@ function Conteudo() {
             nulla architecto voluptate. Distinctio eos recusandae incidunt
             voluptates velit maxime qui necessitatibus voluptas id, sit dolorem
             officia dolore vel? Aspernatur, molestias?
-          </p> <br />
+          </p>
           <p>
             Quaerat dignissimos quasi, adipisci sed voluptates neque atque esse
             eius, at iure incidunt. Impedit corrupti non architecto nam odit
@@ -20,6 +20,12 @@ function Conteudo() {
           </p>
         </div>
       </section>
+
+      <div className="container-prateleira">
+          <h1 className="legenda">PRODUTOS EM OFERTA</h1> 
+          <img src="/img/supermercado_640.png" alt="Prateleira de Produtos." />
+      </div>
+       
     </>
   );
 }

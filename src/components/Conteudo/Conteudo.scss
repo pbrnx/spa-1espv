@@ -1,0 +1,33 @@
+@mixin common-styles {
+  padding-left: 2%;
+  padding-right: 30%;
+  padding-bottom: 2%;
+}
+@mixin text-styles($font-size) {
+  text-align: justify;
+  font-size: $font-size;
+}
+
+
+
+.title {
+  @include common-styles;
+  font-size: 40px;
+}
+
+.paragraph {
+  @include common-styles;
+  @include text-styles(23px);
+}
+
+.container-prateleira {
+  text-align: center;
+
+  .legenda {
+    font-size: 28px;
+  }
+
+  img {
+    width: 45%;
+  }
+}
