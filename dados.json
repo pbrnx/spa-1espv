@@ -1,16 +1,3 @@
 {
-  "produtos": [
-    {
-      "nome": "Geladeria",
-      "desc": "1000w",
-      "valor": "501",
-      "id": 1
-    },
-    {
-      "nome": "Teclado Razer",
-      "desc": "Mecânico",
-      "valor": "399",
-      "id": 2
-    }
-  ]
+  "produtos": []
 }

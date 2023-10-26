@@ -7,7 +7,7 @@ export default function Rodape() {
         <div>
           <ul>
             <li>
-              <a href="#">GitHub</a>
+              <a href="https://github.com/pbrnx/spa-1espv" target="blank">GitHub</a>
             </li>
             <li>
               <a href="#">X</a>
