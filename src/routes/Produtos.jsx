@@ -1,11 +1,11 @@
 // Importando as bibliotecas e estilos necessários
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./Produtos.scss";
 
 export default function Produtos() {
  { /* Configurando o título da página*/}
-  
- document.title = "PRODUTOS";
+  document.title = "PRODUTOS";
   
   // Inicializando o estado para armazenar a lista de produtos obtidos da API
   const [listaProdutosAPI, setListaProdutosAPI] = useState([]);

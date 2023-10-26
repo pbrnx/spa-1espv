@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+
 export default function EditarProdutos() {
   
   // Obtendo o ID do produto da URL para saber qual produto editar
