@@ -23,7 +23,7 @@ Isso inicia o `json-server` na porta 3000, usando `dados.json` como seu banco de
 
 4. **Executar a Aplicação**
 Em um novo terminal (sem fechar o json-server), navegue até o diretório raiz do projeto e execute:
-npm start
+npm run dev
 
 A aplicação deve ser iniciada em `http://localhost:3001` ou a próxima porta disponível (se a porta 3001 estiver ocupada).
 
