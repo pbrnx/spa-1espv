@@ -25,7 +25,7 @@ Isso inicia o `json-server` na porta 3000, usando `dados.json` como seu banco de
 Em um novo terminal (sem fechar o json-server), navegue até o diretório raiz do projeto e execute:
 npm run dev
 
-A aplicação deve ser iniciada em `http://localhost:3001` ou a próxima porta disponível (se a porta 3001 estiver ocupada).
+A aplicação deve ser iniciada em qualquer porta que **NÃO** seja a 3000, já que essa é a porta da base de dados json.
 
 5. **Uso da Aplicação**
 - Para visualizar todos os produtos, navegue até a página de produtos.
