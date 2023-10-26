@@ -1,11 +1,14 @@
 // Importando as bibliotecas e funções necessárias
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function EditarProdutos() {
   
   // Obtendo o ID do produto da URL para saber qual produto editar
   const { id } = useParams();
+  
+  // Hook para navegação
+  const navigate = useNavigate();
 
   // Inicializando o estado para armazenar os detalhes do produto que será editado
   const [produto, setProduto] = useState({
@@ -29,21 +32,24 @@ export default function EditarProdutos() {
   };
 
   // Função chamada quando o formulário é submetido
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Fazendo uma chamada de API para atualizar o produto
-    fetch(`http://localhost:3000/produtos/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(produto)
-    })
-    .then(response => response.json())
-    .then(updatedProduct => {
+    try {
+      const response = await fetch(`http://localhost:3000/produtos/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(produto)
+      });
+      const updatedProduct = await response.json();
       setProduto(updatedProduct);
       alert('Produto atualizado.');
-    });
+      navigate('/produtos');
+    } catch (error) {
+      console.error("Error updating product:", error);
+    }
   };
 
   // Renderização do componente
