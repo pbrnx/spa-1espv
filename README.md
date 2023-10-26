@@ -35,7 +35,3 @@ A aplicação deve ser iniciada em `http://localhost:3001` ou a próxima porta d
 ## Informações Adicionais
 
 Lembre-se de que esta aplicação usa o `json-server` para simular uma API, o que significa que qualquer dado adicionado ou modificado será resetado caso o servidor seja reiniciado.
-
-## Suporte
-
-Se você encontrar algum problema ou tiver uma sugestão, sinta-se à vontade para criar um issue ou pull request no GitHub.
