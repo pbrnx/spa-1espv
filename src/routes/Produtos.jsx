@@ -1,7 +1,6 @@
 // Importando as bibliotecas e estilos necessários
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Produtos.scss";
 
 export default function Produtos() {
  { /* Configurando o título da página*/}
