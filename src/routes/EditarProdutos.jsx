@@ -1,28 +1,45 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import data from '../dados.json';
 
 export default function EditarProdutos() {
   
   const { id } = useParams();
-  const productFromData = data.produtos.find(p => p.id === Number(id));
 
-  const [produto, setProduto] = useState(productFromData || {
+  const [produto, setProduto] = useState({
     id: "",
     nome: "",
     desc: "",
     valor: ""
   });
 
+  useEffect(() => {
+    // Fetch the product with the given id from the server
+    fetch(`http://localhost:3000/produtos/${id}`)
+      .then(response => response.json())
+      .then(data => setProduto(data));
+  }, [id]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProduto(prevState => ({ ...prevState, [name]: value }));
   };
 
-  // You'd normally make an API call to save the edits
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Produto atualizado.');
+
+    // Make an API call to update the product
+    fetch(`http://localhost:3000/produtos/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(produto)
+    })
+    .then(response => response.json())
+    .then(updatedProduct => {
+      setProduto(updatedProduct);
+      alert('Produto atualizado.');
+    });
   };
 
   return (

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import data from '../dados.json';
 import "./Produtos.scss";
 
 export default function Produtos() {
@@ -9,16 +8,34 @@ export default function Produtos() {
   const [listaProdutosAPI, setListaProdutosAPI] = useState([]);
 
   useEffect(() => {
-    setListaProdutosAPI(data.produtos);
+    // GET dos dados iniciais do servidor
+    fetch('http://localhost:3000/produtos')
+      .then(response => response.json())
+      .then(data => setListaProdutosAPI(data));
   }, []);
 
   const addProduct = (product) => {
-    setListaProdutosAPI([...listaProdutosAPI, { ...product, id: Date.now() }]);
+    fetch('http://localhost:3000/produtos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+    .then(response => response.json())
+    .then(newProduct => {
+      setListaProdutosAPI([...listaProdutosAPI, newProduct]);
+    });
   };
 
   const deleteProduct = (id) => {
-    const newProducts = listaProdutosAPI.filter(product => product.id !== id);
-    setListaProdutosAPI(newProducts);
+    fetch(`http://localhost:3000/produtos/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      const newProducts = listaProdutosAPI.filter(product => product.id !== id);
+      setListaProdutosAPI(newProducts);
+    });
   };
 
   return (
