@@ -1,0 +1,72 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+/* Define variables for colors, fonts, etc. if you wish to reuse these values */
+$border-color: #ccc;
+$button-bg: #ff0000;
+$button-bg-hover: #000000;
+$font-family-rubik: 'Rubik', sans-serif;
+
+/* SCSS for the form and related elements */
+form {
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 35px;
+  border: 1px solid $border-color;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+
+ 
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+
+  button[type="submit"] {
+    background-color: $button-bg;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 150%;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: $font-family-rubik;
+    transition: background-color 0.3s ease;
+    margin-right: 3%;
+    margin-left: 3%;
+
+    &:hover {
+      background-color: $button-bg-hover;
+      color: #fff;
+    }
+    
+    &:not(:hover) {
+      transition: background-color 0.3s ease;
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* SCSS for the container of the login button */
+.containerLoginButton {
+  display: flex;
+  flex-direction: row;
+  max-width: 30%;
+  text-align: center;
+}
